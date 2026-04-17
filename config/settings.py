@@ -27,7 +27,7 @@ class Settings:
     def validate(cls):
         """Validate that required settings are configured"""
         if not cls.OPENAI_API_KEY:
-            raise ValueError("OPENAI_API_KEY is not set in environment variables")
+            print("⚠️  OPENAI_API_KEY is not set. Please add it to your .env file before generating websites.")
         
         os.makedirs(cls.OUTPUT_DIR, exist_ok=True)
 

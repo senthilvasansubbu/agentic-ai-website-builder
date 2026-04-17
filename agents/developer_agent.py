@@ -1,9 +1,8 @@
-from crewai import Agent
-from langchain_openai import ChatOpenAI
+from crewai import Agent, LLM
 from config.settings import settings
 
 # Initialize the LLM
-llm = ChatOpenAI(model_name=settings.OPENAI_MODEL, api_key=settings.OPENAI_API_KEY)
+llm = LLM(model=settings.OPENAI_MODEL, api_key=settings.OPENAI_API_KEY)
 
 developer_agent = Agent(
     role="Web Developer",

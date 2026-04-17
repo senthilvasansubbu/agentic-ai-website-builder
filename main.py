@@ -87,8 +87,9 @@ def process_website_request(user_input: str) -> bool:
         result = build_website(user_input)
         
         if result["status"] == "success":
-            # Extract the result (HTML code should be in the crew output)
-            html_code = result.get("result", "")
+            # Extract the result — fallback returns a plain string; CrewAI returns an object
+            raw = result.get("result", "")
+            html_code = raw if isinstance(raw, str) else str(raw)
             
             if not html_code:
                 print("❌ Failed to generate website code")

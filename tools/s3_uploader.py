@@ -28,12 +28,13 @@ class S3Uploader:
             print("⚠️  AWS credentials not configured. S3 uploads will be skipped.")
     
     def upload_file(self, file_path: str, s3_key: Optional[str] = None) -> Optional[str]:
-        """Upload a file to S3"""
-        
+        """
+        Upload a file to S3
+
         Args:
             file_path: Path to the file to upload
             s3_key: S3 object key (if None, uses filename)
-            
+
         Returns:
             S3 URL if successful, None otherwise
         """
@@ -64,12 +65,13 @@ class S3Uploader:
             return None
     
     def upload_directory(self, directory_path: str, s3_prefix: str = "") -> list:
-        """Upload all files in a directory to S3"""
-        
+        """
+        Upload all files in a directory to S3
+
         Args:
             directory_path: Path to the directory
             s3_prefix: Prefix for S3 keys
-            
+
         Returns:
             List of uploaded S3 URLs
         """
